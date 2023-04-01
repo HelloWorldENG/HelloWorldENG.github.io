@@ -309,7 +309,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-04-01 16:37:53 / Modified: 23:17:25" itemprop="dateCreated datePublished" datetime="2023-04-01T16:37:53+08:00">2023-04-01</time>
+      <time title="Created: 2023-04-01 16:37:53 / Modified: 23:54:12" itemprop="dateCreated datePublished" datetime="2023-04-01T16:37:53+08:00">2023-04-01</time>
     </span>
 
   
@@ -381,11 +381,12 @@
 </ul>
 <h4 id="生成新文章"><a href="#生成新文章" class="headerlink" title="生成新文章"></a>生成新文章</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;test&quot; # 会在 source/_posts/ 目录下生成文件 ‘test.<span class="built_in">md</span>’，打开编辑</span><br><span class="line">hexo generate        # 生成静态HTML文件到 /public 文件夹中</span><br><span class="line">hexo server          # 本地运行server服务预览</span><br></pre></td></tr></table></figure>
 
-<p>此时，访问<a href="http://localhost:4000即可预览你的博客：">http://localhost:4000即可预览你的博客：</a></p>
+<p>此时，访问<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可预览你的博客：</p>
 <p><img src="/2023/04/01/Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/hexo%E9%A2%84%E8%A7%88.png"></p>
 <h2 id="项目文件托管GitHub仓库"><a href="#项目文件托管GitHub仓库" class="headerlink" title="项目文件托管GitHub仓库"></a>项目文件托管GitHub仓库</h2><h3 id="创建GitHub仓库"><a href="#创建GitHub仓库" class="headerlink" title="创建GitHub仓库"></a>创建GitHub仓库</h3><p>进入<a target="_blank" rel="noopener" href="https://github.com/new">github仓库创建</a>界面，新建repository。这里仓库名一定要<code>你的用户名/</code>比如你的用户名为丁真，那么就应该为 <code>丁真.github.io</code>。因为只有这样的仓库名称最后才能以静态页面展示。如图：XXX的内容一定要与红色的框里的文本一致。勾选Public。</p>
-<p><img src="C:\Users\星星FacAi\AppData\Roaming\Typora\typora-user-images\image-20230401202602472.png" alt="image-20230401202602472"></p>
-<p>​	仓库创建好之后 如图设置main&#x2F;root。<img src="C:\Users\星星FacAi\Desktop\无标题.jpg" alt="无标题"></p>
+<p><img src="/2023/04/01/Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA.jpg"></p>
+<p>​	仓库创建好之后 如图设置main&#x2F;root。</p>
+<p><img src="/2023/04/01/Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E4%BB%93%E5%BA%93%E8%AE%BE%E7%BD%AE.jpg" alt="无标题"></p>
 <h3 id="部署到Git"><a href="#部署到Git" class="headerlink" title="部署到Git"></a>部署到Git</h3><p>此步骤可选择直接修改文件也可使用cmd修改，这里给出两种步骤方法。</p>
 <h4 id="直接修改文件-config-yml"><a href="#直接修改文件-config-yml" class="headerlink" title="直接修改文件_config.yml"></a>直接修改文件<code>_config.yml</code></h4><p>进入博客目录选择<code>_config.yml</code>，修改如下字段</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> type: git</span><br><span class="line"> repo:https://github.com/xxxx/xxx.github.io.git</span><br><span class="line"> branch: main</span><br></pre></td></tr></table></figure>
@@ -418,8 +419,21 @@
 <p>然后修改<code>_config.yml</code>配置文件</p>
 <p><code> theme:next #这里为你下载的主题文件夹名字</code></p>
 <p>然后执行重新渲染部署即可</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d  </span><br></pre></td></tr></table></figure>
 
+<h2 id="开始写博客"><a href="#开始写博客" class="headerlink" title="开始写博客"></a>开始写博客</h2><h3 id="文章资源文件夹设置"><a href="#文章资源文件夹设置" class="headerlink" title="文章资源文件夹设置"></a>文章资源文件夹设置</h3><p>为了更规律化管理图片和其他资源以及想要将资源分布在各个文章上。</p>
+<p>我们需要将 <code>config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true        </span><br></pre></td></tr></table></figure>
+
+<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
+<h3 id="使用-Markdown-嵌入图片"><a href="#使用-Markdown-嵌入图片" class="headerlink" title="使用 Markdown 嵌入图片"></a>使用 Markdown 嵌入图片</h3><p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 引入了一个新的选项，其允许你无需使用 <code>asset_img</code> 标签插件就可以在 markdown 中嵌入图片</p>
+<p>如需启用，在_config.yml配置文件中加入如下语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
+
+<p>启用后，资源图片将会被自动解析为其对应文章的路径。<br>例如： <code>image.jpg</code> 位置为 <code>/2020/01/02/foo/image.jpg</code> ，这表示它是 <code>/2020/01/02/foo/</code> 文章的一张资源图片， <code>![](image.jpg)</code> 将会被解析为 <code>&lt;img src=&quot;/2020/01/02/foo/image.jpg&quot;&gt;</code> 。</p>
+<h3 id="新建博客"><a href="#新建博客" class="headerlink" title="新建博客"></a>新建博客</h3><p>此步可看 [生成新文章](# 生成新文章)生成md文件，打开书写即可。推荐使用Typora书写。关于markDown语法后续会更新。</p>
+<h3 id="Typora破解激活"><a href="#Typora破解激活" class="headerlink" title="Typora破解激活"></a>Typora破解激活</h3><p>在<a target="_blank" rel="noopener" href="https://typoraio.cn/">Typora 官方中文站 (typoraio.cn)</a>下载Typora，然后在下载下方我给出的激活补丁。安装Typora后，关闭电脑安全中心实时防护，把补丁拉入Typora安装目录，再以管理员身份运行即可成功激活。</p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1yPO8Vx7UC5jsdqHI5pYVpg" title="点击下载">激活补丁</a>  提取码: 3j6b </p>
 
       
     </div>
