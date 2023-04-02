@@ -143,7 +143,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/01/xzx/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/01/Typora%E4%B9%A6%E5%86%99Hexo%E5%8D%9A%E5%AE%A2%E5%8F%8AmarkDown%E8%AF%AD%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +161,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/01/xzx/" class="post-title-link" itemprop="url">精通HelloWorld的高级工程师</a>
+          <a href="/2023/04/01/Typora%E4%B9%A6%E5%86%99Hexo%E5%8D%9A%E5%AE%A2%E5%8F%8AmarkDown%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">Typora书写Hexo博客及markDown语法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -171,9 +171,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-01 23:09:27 / Modified: 23:55:21" itemprop="dateCreated datePublished" datetime="2023-04-01T23:09:27+08:00">2023-04-01</time>
+      <time title="Created: 2023-04-01 23:09:27" itemprop="dateCreated datePublished" datetime="2023-04-01T23:09:27+08:00">2023-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-02 13:31:20" itemprop="dateModified" datetime="2023-04-02T13:31:20+08:00">2023-04-02</time>
     </span>
 
   
@@ -186,7 +192,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h2 id="开始写博客"><a href="#开始写博客" class="headerlink" title="开始写博客"></a>开始写博客</h2><p>hexo博客以md文件生成，使用markdown语法书写，在这里推荐Typora。</p>
+<h3 id="Typora破解激活"><a href="#Typora破解激活" class="headerlink" title="Typora破解激活"></a>Typora破解激活</h3><p>在<a target="_blank" rel="noopener" href="https://typoraio.cn/">Typora 官方中文站 (typoraio.cn)</a>下载Typora，然后在下载下面我给出的激活补丁。安装Typora后，关闭电脑安全中心实时防护，把补丁拉入Typora安装目录，再以管理员身份运行即可成功激活。</p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1yPO8Vx7UC5jsdqHI5pYVpg">激活补丁</a>  提取码: 3j6b </p>
+<h3 id="Hexo初始化设置"><a href="#Hexo初始化设置" class="headerlink" title="Hexo初始化设置"></a>Hexo初始化设置</h3><h4 id="文章资源文件夹设置"><a href="#文章资源文件夹设置" class="headerlink" title="文章资源文件夹设置"></a>文章资源文件夹设置</h4><p>为了更规律化管理图片和其他资源以及想要将资源分布在各个文章上。</p>
+<p>我们需要将 <code>config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true        </span><br></pre></td></tr></table></figure>
+
+<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
+<h4 id="使用-Markdown-嵌入图片"><a href="#使用-Markdown-嵌入图片" class="headerlink" title="使用 Markdown 嵌入图片"></a>使用 Markdown 嵌入图片</h4><p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 引入了一个新的选项，其允许你无需使用 <code>asset_img</code> 标签插件就可以在 markdown 中嵌入图片</p>
+<p>如需启用，在<code>_config.yml</code>配置文件中加入如下语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
+
+<p>启用后，资源图片将会被自动解析为其对应文章的路径。 例如： <code>image.jpg</code> 位置为 <code>/2020/01/02/foo/image.jpg</code> ，这表示它是 <code>/2020/01/02/foo/</code> 文章的一张资源图片， <code>![](image.jpg)</code> 将会被解析为 <code>&lt;img src=&quot;/2020/01/02/foo/image.jpg&quot;&gt;</code> 。</p>
+<h4 id="兼容Typora和Hexo图片显示"><a href="#兼容Typora和Hexo图片显示" class="headerlink" title="兼容Typora和Hexo图片显示"></a>兼容Typora和Hexo图片显示</h4><p>在上文中，<img src="/image.jpg">可以在hexo正常显示图片，但在本地Typora无法显示图片，如果使用相对路劲，Typora能显示图片但Hexo又无法显示。我们修改下面配置达到两者兼容。</p>
+
       
     </div>
 
@@ -240,9 +260,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-01 16:37:53 / Modified: 23:54:12" itemprop="dateCreated datePublished" datetime="2023-04-01T16:37:53+08:00">2023-04-01</time>
+      <time title="Created: 2023-04-01 16:37:53" itemprop="dateCreated datePublished" datetime="2023-04-01T16:37:53+08:00">2023-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-02 13:30:42" itemprop="dateModified" datetime="2023-04-02T13:30:42+08:00">2023-04-02</time>
     </span>
 
   
@@ -261,7 +287,7 @@
 <blockquote>
 <p>每天坚持在网上输出文字垃圾 但是属于自己的文字垃圾             –HelloWorld工程师</p>
 </blockquote>
-<h2 id="使用的工具及系统环境"><a href="#使用的工具及系统环境" class="headerlink" title="使用的工具及系统环境"></a>使用的工具及系统环境</h2><p>个人博客框架是hexo，博客文件拖管于github，博客网站用netlify生成，国内访问采用cloudflare进行CDN加速。使用这个解决方案的原因是不需要云服务器，也不需要备案，只需要有一个域名即可。</p>
+<h2 id="使用的工具及系统环境"><a href="#使用的工具及系统环境" class="headerlink" title="使用的工具及系统环境"></a>使用的工具及系统环境</h2><p>个人博客框架是hexo，博客文件拖管于github。</p>
 <p>我个人的系统环境是window11，本文教程都基于此。</p>
 <blockquote>
 <p>其他macOS和Linux也大同小异 触类旁通。 </p>
@@ -271,7 +297,7 @@
 <li><a target="_blank" rel="noopener" href="http://nodejs.org/">Node.js</a> (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)</li>
 <li><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a></li>
 </ul>
-<p>如果你的电脑中已经安装上述必备程序，你可以直接前往 [生成博客](# 生成博客) 步骤。</p>
+<p>如果你的电脑中已经安装上述必备程序，你可以直接前往 <a href="#%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2">生成博客</a> 步骤。</p>
 <p>如果你的电脑中尚未安装所需要的程序，为避免重复造轮子，互联网上有很多详细的安装教程。请读者自行安装。同时提供<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a>，这里也有Node和Git的安装教程。</p>
 <p>最后打开cmd查看版本信息以确认环境配置信息：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node -v # 查看node版本信息</span><br><span class="line">npm -v # 查看npm版本信息</span><br><span class="line">git -v # 查看git版本信息</span><br></pre></td></tr></table></figure>
@@ -299,16 +325,17 @@
 <p>各部分的含义：</p>
 <ul>
 <li><pre><code>_config.yml
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 为全局配置文件，网站的很多信息都在这里配置，比如说网站名称，副标题，描述，作者，语言，主题等等。具体可以参考官方文档：https://hexo.io/zh-cn/docs/configuration.html。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  scaffolds</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  为全局配置文件，网站的很多信息都在这里配置，比如说网站名称，副标题，描述，作者，语言，主题等等。具体可以参考官方文档：https://hexo.io/zh-cn/docs/configuration.html。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  scaffolds</span><br></pre></td></tr></table></figure>
 
-- 骨架文件，是生成新页面或者新博客的模版。可以根据需求编辑，当`hexo`生成新博客的时候，会用这里面的模版进行初始化。
+骨架文件，是生成新页面或者新博客的模版。可以根据需求编辑，当`hexo`生成新博客的时候，会用这里面的模版进行初始化。
 </code></pre>
 </li>
 <li><pre><code>source
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 这个文件夹下面存放的是网站的`markdown`源文件，里面有一个`_post`文件夹，所有的`.md`博客文件都会存放在这个文件夹下。现在，你应该能看到里面有一个`hello-world.md`文件。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  themes</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  这个文件夹下面存放的是网站的`markdown`源文件，里面有一个`_post`文件夹，所有的`.md`博客文件都会存放在这个文件夹下。现在，你应该能看到里面有一个`hello-world.md`文件。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  themes</span><br></pre></td></tr></table></figure>
 
-- 网站主题目录，`hexo`有非常丰富的主题支持，主题目录会存放在这个目录下面。
-- 我们后续会以默认主题来演示，更多的主题参见：https://hexo.io/themes/
+网站主题目录，`hexo`有非常丰富的主题支持，主题目录会存放在这个目录下面。
+
+我们后续会以默认主题来演示，更多的主题参见：https://hexo.io/themes/
 </code></pre>
 </li>
 </ul>
@@ -321,7 +348,7 @@
 <p>​	仓库创建好之后 如图设置main&#x2F;root。</p>
 <p><img src="/2023/04/01/Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E4%BB%93%E5%BA%93%E8%AE%BE%E7%BD%AE.jpg" alt="无标题"></p>
 <h3 id="部署到Git"><a href="#部署到Git" class="headerlink" title="部署到Git"></a>部署到Git</h3><p>此步骤可选择直接修改文件也可使用cmd修改，这里给出两种步骤方法。</p>
-<h4 id="直接修改文件-config-yml"><a href="#直接修改文件-config-yml" class="headerlink" title="直接修改文件_config.yml"></a>直接修改文件<code>_config.yml</code></h4><p>进入博客目录选择<code>_config.yml</code>，修改如下字段</p>
+<h4 id="直接修改文件-config-yml-俩者选一"><a href="#直接修改文件-config-yml-俩者选一" class="headerlink" title="直接修改文件_config.yml(俩者选一)"></a>直接修改文件<code>_config.yml</code>(俩者选一)</h4><p>进入博客目录选择<code>_config.yml</code>，修改如下字段</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> type: git</span><br><span class="line"> repo:https://github.com/xxxx/xxx.github.io.git</span><br><span class="line"> branch: main</span><br></pre></td></tr></table></figure>
 
 <p>其中：</p>
@@ -330,7 +357,7 @@
 <li><code>repo</code>是你的仓库地址，也就是仓库克隆的地址，推荐用https的链接。其中xxx为你的用户名，此地址直接从你仓库复制即可</li>
 <li><code>branch</code>不写默认是master，通常我们写成main就可以。</li>
 </ul>
-<h4 id="cmd修改"><a href="#cmd修改" class="headerlink" title="cmd修改"></a>cmd修改</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &quot;博客目录&quot;</span><br><span class="line">git initgit add .</span><br><span class="line">git commit -m &quot;my blog first commit&quot;</span><br><span class="line">git remote add origin &quot;远端github仓库地址&quot;</span><br><span class="line">git branch -M maingit push -u origin main</span><br></pre></td></tr></table></figure>
+<h4 id="cmd修改-俩者选一"><a href="#cmd修改-俩者选一" class="headerlink" title="cmd修改(俩者选一)"></a>cmd修改(俩者选一)</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &quot;博客目录&quot;</span><br><span class="line">git initgit add .</span><br><span class="line">git commit -m &quot;my blog first commit&quot;</span><br><span class="line">git remote add origin &quot;远端github仓库地址&quot;</span><br><span class="line">git branch -M maingit push -u origin main</span><br></pre></td></tr></table></figure>
 
 <h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><p>以上配置完成后保存 然后回到终端执行<code>npm install hexo-deployer-git --save</code>安装一个插件，这样才能将你写好的文章部署到github服务器上并让别人浏览到。安装完成后在终端中依次执行如下代码(为了简单后续统称为三步)</p>
 <ul>
@@ -354,19 +381,8 @@
 <p>然后执行重新渲染部署即可</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d  </span><br></pre></td></tr></table></figure>
 
-<h2 id="开始写博客"><a href="#开始写博客" class="headerlink" title="开始写博客"></a>开始写博客</h2><h3 id="文章资源文件夹设置"><a href="#文章资源文件夹设置" class="headerlink" title="文章资源文件夹设置"></a>文章资源文件夹设置</h3><p>为了更规律化管理图片和其他资源以及想要将资源分布在各个文章上。</p>
-<p>我们需要将 <code>config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true        </span><br></pre></td></tr></table></figure>
-
-<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
-<h3 id="使用-Markdown-嵌入图片"><a href="#使用-Markdown-嵌入图片" class="headerlink" title="使用 Markdown 嵌入图片"></a>使用 Markdown 嵌入图片</h3><p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 引入了一个新的选项，其允许你无需使用 <code>asset_img</code> 标签插件就可以在 markdown 中嵌入图片</p>
-<p>如需启用，在_config.yml配置文件中加入如下语句：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
-
-<p>启用后，资源图片将会被自动解析为其对应文章的路径。<br>例如： <code>image.jpg</code> 位置为 <code>/2020/01/02/foo/image.jpg</code> ，这表示它是 <code>/2020/01/02/foo/</code> 文章的一张资源图片， <code>![](image.jpg)</code> 将会被解析为 <code>&lt;img src=&quot;/2020/01/02/foo/image.jpg&quot;&gt;</code> 。</p>
-<h3 id="新建博客"><a href="#新建博客" class="headerlink" title="新建博客"></a>新建博客</h3><p>此步可看 [生成新文章](# 生成新文章)生成md文件，打开书写即可。推荐使用Typora书写。关于markDown语法后续会更新。</p>
-<h3 id="Typora破解激活"><a href="#Typora破解激活" class="headerlink" title="Typora破解激活"></a>Typora破解激活</h3><p>在<a target="_blank" rel="noopener" href="https://typoraio.cn/">Typora 官方中文站 (typoraio.cn)</a>下载Typora，然后在下载下方我给出的激活补丁。安装Typora后，关闭电脑安全中心实时防护，把补丁拉入Typora安装目录，再以管理员身份运行即可成功激活。</p>
-<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1yPO8Vx7UC5jsdqHI5pYVpg" title="点击下载">激活补丁</a>  提取码: 3j6b </p>
+<h2 id="新建博客"><a href="#新建博客" class="headerlink" title="新建博客"></a>新建博客</h2><p>此步可看 <a href="#%E7%94%9F%E6%88%90%E6%96%B0%E6%96%87%E7%AB%A0">生成新文章</a>生成md文件，打开书写即可。推荐使用Typora书写。关于markDown语法后续会更新。</p>
+<h2 id="后续升级"><a href="#后续升级" class="headerlink" title="后续升级"></a>后续升级</h2><p>后续博客网站可用netlify生成，国内访问采用cloudflare进行CDN加速。使用这个解决方案的原因是不需要云服务器，也不需要备案，只需要有一个域名即可。目前本人暂无域名需求，有需要的读者可自行查看相关教程。</p>
 
       
     </div>
