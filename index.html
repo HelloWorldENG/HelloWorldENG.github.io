@@ -179,7 +179,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-02 13:31:20" itemprop="dateModified" datetime="2023-04-02T13:31:20+08:00">2023-04-02</time>
+      <time title="Modified: 2023-04-02 15:58:47" itemprop="dateModified" datetime="2023-04-02T15:58:47+08:00">2023-04-02</time>
     </span>
 
   
@@ -205,7 +205,117 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
 
 <p>启用后，资源图片将会被自动解析为其对应文章的路径。 例如： <code>image.jpg</code> 位置为 <code>/2020/01/02/foo/image.jpg</code> ，这表示它是 <code>/2020/01/02/foo/</code> 文章的一张资源图片， <code>![](image.jpg)</code> 将会被解析为 <code>&lt;img src=&quot;/2020/01/02/foo/image.jpg&quot;&gt;</code> 。</p>
-<h4 id="兼容Typora和Hexo图片显示"><a href="#兼容Typora和Hexo图片显示" class="headerlink" title="兼容Typora和Hexo图片显示"></a>兼容Typora和Hexo图片显示</h4><p>在上文中，<img src="/image.jpg">可以在hexo正常显示图片，但在本地Typora无法显示图片，如果使用相对路劲，Typora能显示图片但Hexo又无法显示。我们修改下面配置达到两者兼容。</p>
+<h4 id="兼容Typora和Hexo图片显示"><a href="#兼容Typora和Hexo图片显示" class="headerlink" title="兼容Typora和Hexo图片显示"></a>兼容Typora和Hexo图片显示</h4><p>在上文中，<code>![](image.jpg)</code>可以在hexo正常显示图片，但在本地Typora无法显示图片，如果使用相对路劲，Typora能显示图片但Hexo又无法显示。我们修改下面配置达到两者兼容。</p>
+<p><code>博客目录\node_modules\hexo-renderer-marked\lib\renderer.js</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">image(href, title, text) &#123;</span><br><span class="line">    #加入如下代码</span><br><span class="line">    if(href.indexOf(&#x27;/&#x27;)&gt;-1)&#123;</span><br><span class="line">      href=href.split(&#x27;/&#x27;)[1]</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样我们在Typora下使用<code>![](文章目录/image.jpg)</code>就可以在本地Typora和Hexo部署都显示图片。</p>
+<h2 id="MarkDown语法"><a href="#MarkDown语法" class="headerlink" title="MarkDown语法"></a>MarkDown语法</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。使用Markdown 编写的文档可以轻松地导出为 HTML、Word、图像、PDF、Epub 等多种格式的文档。当前许多网站都支持使用 Markdown 来撰写文档或者发表文章。例如：GitHub、简书、StackOverflow、有道云笔记等等。</p>
+<p>注：很多语法格式需要空格分隔。不同语法直接支持相互嵌套。例如你可在引用里嵌套列表等等，具体可自行实验。</p>
+<p>这里只给出日常语法，具体可查看<a target="_blank" rel="noopener" href="https://markdown.com.cn/basic-syntax/htmls.html"> Markdown 官方教程</a>。在Typora 有许多快捷键快速生成语法。后续将直接给出快捷键，默认为Typora编辑器的快捷键不再赘述。</p>
+<h3 id="标题语法-ctrl-对应数字"><a href="#标题语法-ctrl-对应数字" class="headerlink" title="标题语法 ctrl+对应数字"></a>标题语法 ctrl+对应数字</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 标题</span></span><br><span class="line"><span class="section">## 标题</span></span><br><span class="line"><span class="section">### 标题</span></span><br><span class="line"><span class="section">#### 标题</span></span><br><span class="line"><span class="section">##### 标题</span></span><br><span class="line"><span class="section">###### 标题</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="引用语法-ctrl-shift-q"><a href="#引用语法-ctrl-shift-q" class="headerlink" title="引用语法 ctrl+shift+q"></a>引用语法 ctrl+shift+q</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 你要引用的句子</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<blockquote>
+<p>你要引用的句子</p>
+</blockquote>
+<h3 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h3><h4 id="有序列表-ctrl-shift"><a href="#有序列表-ctrl-shift" class="headerlink" title="有序列表 ctrl+shift+["></a>有序列表 ctrl+shift+[</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 列表一</span><br><span class="line"><span class="bullet">2.</span> 列表二</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ol>
+<li>列表一</li>
+<li>safas二</li>
+</ol>
+<h4 id="无序列表-ctrl-shift"><a href="#无序列表-ctrl-shift" class="headerlink" title="无序列表 ctrl+shift+]"></a>无序列表 ctrl+shift+]</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 列表一</span><br><span class="line"><span class="bullet">*</span> 列表二</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ul>
+<li>列表一</li>
+</ul>
+<ul>
+<li>列表二</li>
+</ul>
+<h4 id="任务列表-ctrl-shift-x"><a href="#任务列表-ctrl-shift-x" class="headerlink" title="任务列表 ctrl+shift+x"></a>任务列表 ctrl+shift+x</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [ ] 列表一</span><br><span class="line"><span class="bullet">-</span> [x] 列表二</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ul>
+<li><input disabled="" type="checkbox"> 列表一</li>
+<li><input checked="" disabled="" type="checkbox"> 列表二</li>
+</ul>
+<h3 id="代码语法"><a href="#代码语法" class="headerlink" title="代码语法"></a>代码语法</h3><h4 id="代码-ctrl-shift-96"><a href="#代码-ctrl-shift-96" class="headerlink" title="代码 ctrl+shift+&#96;"></a>代码 ctrl+shift+&#96;</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`代码内容`</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><code>代码内容</code></p>
+<h4 id="代码块-ctrl-shift-k"><a href="#代码块-ctrl-shift-k" class="headerlink" title="代码块 ctrl+shift+k"></a>代码块 ctrl+shift+k</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```你要的代码语言</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line">例如：</span><br><span class="line"><span class="code">```c</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">### 表格语法 ctrl+t</span><br><span class="line"></span><br><span class="line">```markdown</span><br><span class="line">|标题|标题|标题|</span><br><span class="line">|:--|:--:|--:|</span><br><span class="line">|内容|内容|内容|</span><br></pre></td></tr></table></figure>
+
+<p>:在右边右对齐，在左边左对齐，两边都有冒号居中对齐</p>
+<p>效果：</p>
+<table>
+<thead>
+<tr>
+<th align="left">标题</th>
+<th align="center">标题</th>
+<th align="right">标题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">内容</td>
+<td align="center">内容</td>
+<td align="right">内容</td>
+</tr>
+</tbody></table>
+<h3 id="脚注语法"><a href="#脚注语法" class="headerlink" title="脚注语法"></a>脚注语法</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">内容[^脚注]</span><br><span class="line">[<span class="symbol">^脚注 </span>]:<span class="link">这是脚注</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>内容<a href="%E8%BF%99%E6%98%AF%E8%84%9A%E6%B3%A8">^脚注</a></p>
+<h3 id="横线语法"><a href="#横线语法" class="headerlink" title="横线语法"></a>横线语法</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<hr>
+<h3 id="链接语法"><a href="#链接语法" class="headerlink" title="链接语法"></a>链接语法</h3><h4 id="超链接-ctrl-k"><a href="#超链接-ctrl-k" class="headerlink" title="超链接 ctrl+k"></a>超链接 ctrl+k</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">链接名字</span>](<span class="link">网站 &quot;鼠标提示内容&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><a href="%E7%BD%91%E7%AB%99" title="鼠标提示内容">链接名字</a></p>
+<h4 id="封装链接在文章各处使用"><a href="#封装链接在文章各处使用" class="headerlink" title="封装链接在文章各处使用"></a>封装链接在文章各处使用</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">链接名字</span>][<span class="symbol">id</span>],[<span class="string">链接名字</span>][<span class="symbol">id</span>],[<span class="string">链接名字</span>][<span class="symbol">id</span>]</span><br><span class="line">[<span class="symbol">id</span>]:<span class="link">网站 &quot;鼠标提示内容&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><a href="%E7%BD%91%E7%AB%99" title="鼠标提示内容">链接名字</a>,<a href="%E7%BD%91%E7%AB%99" title="鼠标提示内容">链接名字</a>,<a href="%E7%BD%91%E7%AB%99" title="鼠标提示内容">链接名字</a></p>
+<h4 id="文章内部跳转"><a href="#文章内部跳转" class="headerlink" title="文章内部跳转"></a>文章内部跳转</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这里以跳转到 Typora破解激活 举例</span><br><span class="line">[<span class="string">Typora破解激活</span>](<span class="link">#Typora破解激活</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><a href="#Typora%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB">Typora破解激活 </a> </p>
+<h3 id="图片语法-ctrl-shift-i"><a href="#图片语法-ctrl-shift-i" class="headerlink" title="图片语法 ctrl+shift+i"></a>图片语法 ctrl+shift+i</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片名字</span>](<span class="link">地址 &quot;鼠标提示内容&quot;</span>)</span><br><span class="line">这里地址可用本地地址也可用在线地址，以下用百度logo举例</span><br><span class="line">![<span class="string">百度</span>](<span class="link">https://www.baidu.com/img/bd_logo1.png?where=super &quot;百度logo&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src="/" alt="百度" title="百度logo"></p>
+<h3 id="强调语法"><a href="#强调语法" class="headerlink" title="强调语法"></a>强调语法</h3><h4 id="斜体-ctrl-i"><a href="#斜体-ctrl-i" class="headerlink" title="斜体 ctrl+i"></a><em>斜体 ctrl+i</em></h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">*斜体*</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="加粗-ctrl-b"><a href="#加粗-ctrl-b" class="headerlink" title="加粗 ctrl+b"></a><strong>加粗 ctrl+b</strong></h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">**加粗**</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="下划线-ctrl-u"><a href="#下划线-ctrl-u" class="headerlink" title="下划线 ctrl+u"></a><u>下划线 ctrl+u</u></h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>下划线<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="x3D-x3D-高亮-x3D-x3D"><a href="#x3D-x3D-高亮-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;高亮&#x3D;&#x3D;"></a>&#x3D;&#x3D;高亮&#x3D;&#x3D;</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">==高亮==</span><br></pre></td></tr></table></figure>
+
+<h4 id="下标下标"><a href="#下标下标" class="headerlink" title="下标下标"></a>下标<del>下标</del></h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">下标~下标~</span><br></pre></td></tr></table></figure>
+
+<h4 id="上标-上标"><a href="#上标-上标" class="headerlink" title="上标^上标^"></a>上标^上标^</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上标^上标^</span><br></pre></td></tr></table></figure>
+
+<p>值得注意的是，高亮下标上标在Typora是默认关闭的。</p>
+<p>打开方式：文件 &gt; 偏好设置 &gt; Markdown &gt; Markdown扩展语法中把他们选中 &gt; <strong>重启Typora</strong></p>
+<h3 id="Html语法"><a href="#Html语法" class="headerlink" title="Html语法"></a>Html语法</h3><p>在markdown编辑器中，你可以通过html代码实现你所需要的功能，比如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=419109055&amp;bvid=BV1fV411W7Ss&amp;cid=366830665&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span> <span class="language-xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<iframe src="//player.bilibili.com/player.html?aid=419109055&bvid=BV1fV411W7Ss&cid=366830665&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>markdown还有许多语法，例如数学公式等，这里没有论述感兴趣的可自行百度。</p>
+<p><em>实验是检验真理的唯一标准。</em></p>
 
       
     </div>
@@ -268,7 +378,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-02 13:30:42" itemprop="dateModified" datetime="2023-04-02T13:30:42+08:00">2023-04-02</time>
+      <time title="Modified: 2023-04-02 13:35:47" itemprop="dateModified" datetime="2023-04-02T13:35:47+08:00">2023-04-02</time>
     </span>
 
   
@@ -324,19 +434,18 @@
 
 <p>各部分的含义：</p>
 <ul>
-<li><pre><code>_config.yml
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  为全局配置文件，网站的很多信息都在这里配置，比如说网站名称，副标题，描述，作者，语言，主题等等。具体可以参考官方文档：https://hexo.io/zh-cn/docs/configuration.html。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  scaffolds</span><br></pre></td></tr></table></figure>
-
-骨架文件，是生成新页面或者新博客的模版。可以根据需求编辑，当`hexo`生成新博客的时候，会用这里面的模版进行初始化。
-</code></pre>
+<li><p><code>_config.yml</code></p>
+<p>为全局配置文件，网站的很多信息都在这里配置，比如说网站名称，副标题，描述，作者，语言，主题等等。具体可以参考官方文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration.html%E3%80%82">https://hexo.io/zh-cn/docs/configuration.html。</a></p>
 </li>
-<li><pre><code>source
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  这个文件夹下面存放的是网站的`markdown`源文件，里面有一个`_post`文件夹，所有的`.md`博客文件都会存放在这个文件夹下。现在，你应该能看到里面有一个`hello-world.md`文件。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  themes</span><br></pre></td></tr></table></figure>
-
-网站主题目录，`hexo`有非常丰富的主题支持，主题目录会存放在这个目录下面。
-
-我们后续会以默认主题来演示，更多的主题参见：https://hexo.io/themes/
-</code></pre>
+<li><p><code>scaffolds</code></p>
+<p>骨架文件，是生成新页面或者新博客的模版。可以根据需求编辑，当<code>hexo</code>生成新博客的时候，会用这里面的模版进行初始化。</p>
+</li>
+<li><p><code>source</code></p>
+<p>这个文件夹下面存放的是网站的<code>markdown</code>源文件，里面有一个<code>_post</code>文件夹，所有的<code>.md</code>博客文件都会存放在这个文件夹下。现在，你应该能看到里面有一个<code>hello-world.md</code>文件。</p>
+</li>
+<li><p><code>themes</code></p>
+<p>网站主题目录，<code>hexo</code>有非常丰富的主题支持，主题目录会存放在这个目录下面。</p>
+<p>我们后续会以默认主题来演示，更多的主题参见：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
 </li>
 </ul>
 <h4 id="生成新文章"><a href="#生成新文章" class="headerlink" title="生成新文章"></a>生成新文章</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;test&quot; # 会在 source/_posts/ 目录下生成文件 ‘test.<span class="built_in">md</span>’，打开编辑</span><br><span class="line">hexo generate        # 生成静态HTML文件到 /public 文件夹中</span><br><span class="line">hexo server          # 本地运行server服务预览</span><br></pre></td></tr></table></figure>

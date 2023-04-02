@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/2023/04/01/Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E4%BB%93%E5%BA%93%E8%AE%BE%E7%BD%AE.jpg">
 <meta property="og:image" content="c:\Users\%E6%98%9F%E6%98%9FFacAi\AppData\Roaming\Typora\typora-user-images\image-20230401225956585.png">
 <meta property="article:published_time" content="2023-04-01T08:37:53.000Z">
-<meta property="article:modified_time" content="2023-04-02T05:30:42.114Z">
+<meta property="article:modified_time" content="2023-04-02T05:35:47.365Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="博客搭建">
 <meta name="twitter:card" content="summary">
@@ -191,7 +191,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-02 13:30:42" itemprop="dateModified" datetime="2023-04-02T13:30:42+08:00">2023-04-02</time>
+      <time title="Modified: 2023-04-02 13:35:47" itemprop="dateModified" datetime="2023-04-02T13:35:47+08:00">2023-04-02</time>
     </span>
 
   
@@ -247,19 +247,18 @@
 
 <p>各部分的含义：</p>
 <ul>
-<li><pre><code>_config.yml
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  为全局配置文件，网站的很多信息都在这里配置，比如说网站名称，副标题，描述，作者，语言，主题等等。具体可以参考官方文档：https://hexo.io/zh-cn/docs/configuration.html。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  scaffolds</span><br></pre></td></tr></table></figure>
-
-骨架文件，是生成新页面或者新博客的模版。可以根据需求编辑，当`hexo`生成新博客的时候，会用这里面的模版进行初始化。
-</code></pre>
+<li><p><code>_config.yml</code></p>
+<p>为全局配置文件，网站的很多信息都在这里配置，比如说网站名称，副标题，描述，作者，语言，主题等等。具体可以参考官方文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration.html%E3%80%82">https://hexo.io/zh-cn/docs/configuration.html。</a></p>
 </li>
-<li><pre><code>source
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  这个文件夹下面存放的是网站的`markdown`源文件，里面有一个`_post`文件夹，所有的`.md`博客文件都会存放在这个文件夹下。现在，你应该能看到里面有一个`hello-world.md`文件。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  themes</span><br></pre></td></tr></table></figure>
-
-网站主题目录，`hexo`有非常丰富的主题支持，主题目录会存放在这个目录下面。
-
-我们后续会以默认主题来演示，更多的主题参见：https://hexo.io/themes/
-</code></pre>
+<li><p><code>scaffolds</code></p>
+<p>骨架文件，是生成新页面或者新博客的模版。可以根据需求编辑，当<code>hexo</code>生成新博客的时候，会用这里面的模版进行初始化。</p>
+</li>
+<li><p><code>source</code></p>
+<p>这个文件夹下面存放的是网站的<code>markdown</code>源文件，里面有一个<code>_post</code>文件夹，所有的<code>.md</code>博客文件都会存放在这个文件夹下。现在，你应该能看到里面有一个<code>hello-world.md</code>文件。</p>
+</li>
+<li><p><code>themes</code></p>
+<p>网站主题目录，<code>hexo</code>有非常丰富的主题支持，主题目录会存放在这个目录下面。</p>
+<p>我们后续会以默认主题来演示，更多的主题参见：<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
 </li>
 </ul>
 <h4 id="生成新文章"><a href="#生成新文章" class="headerlink" title="生成新文章"></a>生成新文章</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;test&quot; # 会在 source/_posts/ 目录下生成文件 ‘test.<span class="built_in">md</span>’，打开编辑</span><br><span class="line">hexo generate        # 生成静态HTML文件到 /public 文件夹中</span><br><span class="line">hexo server          # 本地运行server服务预览</span><br></pre></td></tr></table></figure>
