@@ -1863,7 +1863,11 @@ pre code {
   justify-content: center;
 }
 :not(.post-meta-break) + .post-meta-item::before {
+  content: '|';
   margin: 0 0.5em;
+}
+.clear-post-meta-item::before {
+  display: none;
 }
 .post-meta-item-icon {
   margin-right: 3px;
@@ -2557,7 +2561,7 @@ hr {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #cc2d0d;
+  background: #a7ff63;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
