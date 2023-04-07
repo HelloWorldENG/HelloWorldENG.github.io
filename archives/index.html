@@ -152,13 +152,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -194,13 +194,33 @@
   <div class="post-block">
     <div class="post-content">
       <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 3 篇日志。 继续努力。</span>
+        <span class="collection-header">嗯..! 目前共计 4 篇日志。 继续努力。</span>
       </div>
 
       
     <div class="collection-year">
       <span class="collection-header">2023</span>
     </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2023-04-07T13:55:59+08:00"
+              content="2023-04-07">
+          04-07
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2023/04/07/cursor%E5%8F%96%E6%B6%88%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%8F%8A%E8%80%81%E7%89%88%E6%9C%AC/" itemprop="url">
+            <span itemprop="name">cursor取消自动更新及老版本</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
 
   <article itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -214,7 +234,7 @@
 
       <div class="post-title">
           <a class="post-title-link" href="/2023/04/02/%E5%8D%9A%E5%AE%A2%E4%B8%AA%E4%BA%BA%E5%8C%96%E6%90%AD%E5%BB%BA/" itemprop="url">
-            <span itemprop="name">博客个人化搭建</span>
+            <span itemprop="name">博客个人化</span>
           </a>
       </div>
 
@@ -297,7 +317,7 @@
         mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
         seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
         snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-        document.getElementById("timeDate").innerHTML = "Hello!我在互联网已经游玩了 "+dnum+" 天 "; 
+        document.getElementById("timeDate").innerHTML = "Hello!<br>我在互联网已经游玩了 "+dnum+" 天 "; 
         document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
     } 
 setInterval("createtime()",250);
