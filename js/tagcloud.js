@@ -18,7 +18,7 @@
          TagCanvas.textColour = 'white';
          TagCanvas.textHeight = 25;
          TagCanvas.outlineColour = 'red';
-         TagCanvas.maxSpeed = 0.1;
+         TagCanvas.maxSpeed = 0.2;
          TagCanvas.freezeActive = true;
          TagCanvas.outlineMethod = 'block';
          TagCanvas.minBrightness = 0.2;
