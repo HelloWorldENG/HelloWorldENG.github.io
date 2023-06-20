@@ -101,6 +101,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://helloworldeng.github.io/tags/javaEE/</loc>
+    <lastmod>2023-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
 </urlset>
