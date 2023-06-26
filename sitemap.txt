@@ -12,4 +12,5 @@ http://helloworldeng.github.io/tags/Typora/
 http://helloworldeng.github.io/tags/MarkDown/
 http://helloworldeng.github.io/tags/cursor/
 http://helloworldeng.github.io/tags/javaEE/
-http://helloworldeng.github.io/tags/vue-bug/
+http://helloworldeng.github.io/tags/vue/
+http://helloworldeng.github.io/tags/bug/

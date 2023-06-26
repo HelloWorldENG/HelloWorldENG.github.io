@@ -118,7 +118,14 @@
   </url>
   
   <url>
-    <loc>http://helloworldeng.github.io/tags/vue-bug/</loc>
+    <loc>http://helloworldeng.github.io/tags/vue/</loc>
+    <lastmod>2023-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://helloworldeng.github.io/tags/bug/</loc>
     <lastmod>2023-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
