@@ -83,13 +83,6 @@
 
   
   <url>
-    <loc>http://helloworldeng.github.io/tags/Hexo%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-06-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://helloworldeng.github.io/tags/Typora/</loc>
     <lastmod>2023-06-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -104,6 +97,13 @@
   </url>
   
   <url>
+    <loc>http://helloworldeng.github.io/tags/Hexo%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2023-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://helloworldeng.github.io/tags/cursor/</loc>
     <lastmod>2023-06-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -111,14 +111,14 @@
   </url>
   
   <url>
-    <loc>http://helloworldeng.github.io/tags/vue-bug/</loc>
+    <loc>http://helloworldeng.github.io/tags/javaEE/</loc>
     <lastmod>2023-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://helloworldeng.github.io/tags/javaEE/</loc>
+    <loc>http://helloworldeng.github.io/tags/vue-bug/</loc>
     <lastmod>2023-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
