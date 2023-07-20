@@ -17,6 +17,25 @@
     
     
     <entry>
+      <title>git笔记</title>
+      <link href="/2023/07/01/git%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/07/01/git%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-合并分支"><a href="#1-合并分支" class="headerlink" title="1.合并分支"></a>1.合并分支</h4><p>步骤要点：先切换到master分支，在将dev分支上的代码pull下来。</p><p>图形化操作 TortoiseGit：</p><p><img src="/2023/07/01/git%E7%AC%94%E8%AE%B0/image-20230702203659061.png" alt="image-20230702203659061"></p><p><img src="/2023/07/01/git%E7%AC%94%E8%AE%B0/image-20230702204123712.png" alt="image-20230702204123712"></p><p><img src="/2023/07/01/git%E7%AC%94%E8%AE%B0/image-20230702204144307.png" alt="image-20230702204144307"></p><p>命令行操作：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -v #查看当前分支</span><br><span class="line">git checkout master #切换分支</span><br><span class="line">git pull origin dev #pull远程dev分支</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>xampp和navicat一些随笔</title>
       <link href="/2023/06/30/xampp%E5%8D%87%E7%BA%A7%E9%87%8D%E8%A3%85%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE/"/>
       <url>/2023/06/30/xampp%E5%8D%87%E7%BA%A7%E9%87%8D%E8%A3%85%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE/</url>
