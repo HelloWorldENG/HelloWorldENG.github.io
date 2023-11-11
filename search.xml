@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title></title>
+      <title>uniapp打包微信小程序、抖音小程序中button的区别</title>
       <link href="/2023/11/10/uniapp%E6%89%93%E5%8C%85%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%81%E6%8A%96%E9%9F%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%ADbutton%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
       <url>/2023/11/10/uniapp%E6%89%93%E5%8C%85%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%81%E6%8A%96%E9%9F%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%ADbutton%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
       
         <content type="html"><![CDATA[<h1 id="uniapp打包微信小程序、抖音小程序中button的区别"><a href="#uniapp打包微信小程序、抖音小程序中button的区别" class="headerlink" title="uniapp打包微信小程序、抖音小程序中button的区别"></a>uniapp打包微信小程序、抖音小程序中button的区别</h1><h3 id="源代码分析"><a href="#源代码分析" class="headerlink" title="源代码分析"></a>源代码分析</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;button </span><br><span class="line">    open-type=&quot;contact&quot; </span><br><span class="line">    plain=&quot;true&quot; </span><br><span class="line">    :send-message-title=&quot;goods.name&quot; </span><br><span class="line">    :send-message-img=&quot;goods.cover_pic&quot; </span><br><span class="line">    :send-message-path=&quot;`/pages/product/product?id=$&#123;goods.id&#125;`&quot; </span><br><span class="line">    class=&quot;kefu&quot;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;view class=&quot;kefu_button&quot;&gt;</span><br><span class="line">        &lt;view class=&quot;icon&quot;&gt;</span><br><span class="line">        &lt;image :src=&quot;imgBaseURL + &#x27;icon_kefu@2x.png&#x27;&quot;&gt;&lt;/image&gt;</span><br><span class="line">        &lt;/view&gt;</span><br><span class="line">        &lt;text&gt;客服&lt;/text&gt;</span><br><span class="line">    &lt;/view&gt;</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure><p>微信小程序效果图：</p><p><img src="/2023/11/10/uniapp%E6%89%93%E5%8C%85%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%81%E6%8A%96%E9%9F%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%ADbutton%E7%9A%84%E5%8C%BA%E5%88%AB/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%95%88%E6%9E%9C%E5%9B%BE(%E6%AD%A3%E5%B8%B8).png" alt="image-20231102152303295"></p><p>移植到抖音小程序后：</p><p><img src="/2023/11/10/uniapp%E6%89%93%E5%8C%85%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%81%E6%8A%96%E9%9F%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%ADbutton%E7%9A%84%E5%8C%BA%E5%88%AB/%E6%8A%96%E9%9F%B3%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%95%88%E6%9E%9C%E5%9B%BE(%E5%87%BA%E7%8E%B0%E8%83%8C%E6%99%AF).png" alt="image-20231102152401777"></p><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kefu</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: transparent;</span><br><span class="line">    // <span class="attribute">background</span>:none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h3><p>微信小程序中的button组件有特定的css，背景可以用“<code>background：none</code>”或者<code>background-color: transparent;</code>去掉，但是边框再用“<code>border : none</code>”去掉就不可以了，还是会有一个细细的边框，原因是微信小程序button的默认样式就是在渲染button之后，用::after再加一个边框。这也是微信小程序与h5的不同之处。所以我们使用:after选择器就可以实现去除边框。</p><h3 id="background-color-transparent-和-background-none-之间的区别"><a href="#background-color-transparent-和-background-none-之间的区别" class="headerlink" title="background-color: transparent; 和 background: none; 之间的区别"></a><code>background-color: transparent;</code> 和 <code>background: none;</code> 之间的区别</h3><ol><li><p><code>background-color: transparent;</code> 是用于将元素的背景颜色设置为透明。这意味着元素的背景会显示为其所在元素的背景或内容的背景。</p></li><li><p><code>background: none;</code> 是用于移除元素的背景，包括背景颜色、背景图像和背景属性的设置。这将使元素没有任何背景。</p></li></ol><p>总的来说，<code>background-color: transparent;</code> 设置元素的背景颜色为透明，而 <code>background: none;</code> 移除元素的背景，使其没有任何背景。</p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> uniapp </tag>
+            
+            <tag> 微信小程序 </tag>
+            
+            <tag> 抖音小程序 </tag>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
       
     </entry>
     
